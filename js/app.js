@@ -83,7 +83,7 @@ function draw(){
   var rr=mode=="k"?9:5+Math.sqrt(T/1000)*.25,C=2*Math.PI*rr,dl=C*A/T,s=2*(rr+12);
   var html='<div class="pm" style="width:'+s+'px;height:'+s+'px">'+
    '<svg width="'+s+'" height="'+s+'" viewBox="'+(-s/2)+' '+(-s/2)+' '+s+' '+s+'"><circle r="'+(rr+3)+'" fill="var(--card)"/><circle r="'+rr+'" fill="none" stroke="var(--intl)" stroke-width="7"/><circle r="'+rr+'" fill="none" stroke="var(--dom)" stroke-width="7" stroke-dasharray="'+dl.toFixed(2)+' '+C.toFixed(2)+'" transform="rotate(-90)"/>'+
-   (k==sel?'<circle r="'+(rr+6)+'" fill="none" stroke="var(--ac)" stroke-width="3"/>':'')+'</svg><span class="pl">'+p.n+'</span></div>';
+   (k==sel?'<circle r="'+(rr+6)+'" fill="none" stroke="var(--ac)" stroke-width="3"/>':'')+'</svg><span class="pl'+(k==sel?' on':'')+'">'+p.n+'</span></div>';
   var mk2=L.marker([p.lat,p.lon],{keyboard:false,title:p.n,zIndexOffset:k==sel?2000:1000,icon:L.divIcon({className:"pmk",html:html,iconSize:[s,s],iconAnchor:[s/2,s/2]})});
   mk2.on("click",function(){pick(sel==k?-1:k)});
   mk2.addTo(portLayer);
